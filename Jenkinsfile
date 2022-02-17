@@ -5,7 +5,7 @@ pipeline {
     stage ("Build Docker Image") {
       steps {
 	script {
-          sh "docker build -t nginx:latest Dockerfile"
+          sh "docker build -t nginx:latest ."
 	}
       }
     }
