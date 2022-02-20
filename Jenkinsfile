@@ -6,6 +6,14 @@ pipeline {
   }
 
   stages {
+    stage ("Build Docker Image") {
+      steps {
+        script {
+          sh "docker build -t $accountId.dkr.ecr.us-east-1.amazonaws.com/demo-ecr:latest ."
+        }
+      }
+    }
+
     stage ("Login to ECR Repo") {
       steps {
         script {
@@ -13,13 +21,13 @@ pipeline {
         }
       }
     }
-	stage ("Build Docker Image") {
+/*    stage ("Build Docker Image") {
       steps {
-	    script {
+        script {
           sh "docker build -t $accountId.dkr.ecr.us-east-1.amazonaws.com/demo-ecr:latest ."
-	    }
+        }
       }
-    }
+    } */
     stage ("Push Image to ECR Repo") {
       steps {
         script {
