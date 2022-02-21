@@ -37,7 +37,8 @@ pipeline {
      steps {
        script {
          sh 'aws ecs describe-task-definition --task-definition nginxapp-task  --region="us-east-1" > task-def.json'
-         sh 'aws ecs register-task-definition --family nginxapp-task --region="us-east-1" --cli-input-json file://task-def.json'
+//         sh 'aws ecs register-task-definition --family nginxapp-task --region="us-east-1" --cli-input-json file://task-def.json'
+         sh 'aws ecs register-task-definition --family nginxapp-task --region="us-east-1" --cli-input-json <task-def.json'
        }
      }
    }
