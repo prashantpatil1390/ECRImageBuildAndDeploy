@@ -4,7 +4,8 @@ pipeline {
   environment {
     accountId = "939600059814"
     registry = "${accountId}.dkr.ecr.us-east-1.amazonaws.com/demo-ecr"
-	THE_BUTLER_SAYS_SO=credentials('AcloudGuru-Playground-AWS-Creds')
+//    THE_BUTLER_SAYS_SO=credentials('AcloudGuru-Playground-AWS-Creds')
+    aws_creds=credentials('AcloudGuru-Playground-AWS-Creds')
   }
   
   stages {
